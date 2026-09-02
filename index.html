@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Minha lista de compras</title>
+
+    <!--
+        Importa o arquivo CSS responsável pela aparência da página.
+    -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!--
+        Importa o JavaScript.
+
+        O atributo "defer" faz com que o script seja executado
+        somente depois que o HTML tiver sido carregado.
+    -->
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+
+    <!--
+        Título principal da página.
+    -->
+    <h1 class="title">Lista de compras</h1>
+
+
+    <!--
+        Cabeçalho visual da lista.
+
+        Estes elementos indicam o que cada parte dos itens
+        representa.
+
+        Apesar de visualmente parecer uma tabela, não estamos
+        utilizando uma <table>, pois o conteúdo não representa
+        dados tabulares. Trata-se de uma lista de itens.
+    -->
+    <div class="indicator">
+        <span>Nome do item</span>
+        <span>Quantidade</span>
+        <span>Deletar</span>
+    </div>
+
+
+    <!--
+        Formulário utilizado para adicionar novos itens.
+
+        Utilizamos <form> porque essa área representa uma
+        entrada de dados fornecida pelo usuário.
+
+        O JavaScript irá escutar o evento "submit" desse formulário.
+    -->
+    <form id="item-form" class="item" style="margin-bottom: 2rem;">
+
+        <!--
+            Campo para o usuário informar o nome do produto.
+
+            O "id" permite que o JavaScript encontre esse elemento
+            posteriormente.
+        -->
+        <input id="item-name" class="input" type="text" placeholder="Nome">
+
+
+        <!--
+            Campo para informar a quantidade.
+
+            type="number" indica ao navegador que esperamos
+            um valor numérico.
+
+            Mesmo assim, continuaremos fazendo uma validação
+            no JavaScript.
+        -->
+        <input id="item-quantity" class="input" type="number" placeholder="Quantidade">
+
+
+        <!--
+            Como este botão está dentro de um <form>, usamos
+            type="submit".
+
+            Ao clicar nele, o formulário irá disparar o evento
+            "submit".
+        -->
+        <button id="add-button" class="add-button" type="submit">
+            +
+        </button>
+
+    </form>
+
+
+    <!--
+        <ul> representa uma lista não ordenada.
+
+        É semanticamente apropriado para uma lista de compras,
+        pois temos vários itens pertencentes à mesma lista.
+
+        O CSS remove os marcadores (bullets), então visualmente
+        continuamos tendo a aparência desejada.
+    -->
+    <ul id="items" class="items">
+
+        <!--
+            Este é um exemplo de item que já existe inicialmente
+            na página.
+
+            Cada item da lista é representado por um <li>.
+        -->
+        <li class="item">
+
+            <!-- Nome do produto -->
+            <h2 class="item-name">Pão francês</h2>
+
+            <!-- Quantidade do produto -->
+            <span>2</span>
+
+            <!--
+                Botão responsável por excluir o item.
+
+                Utilizamos type="button" porque este botão NÃO deve
+                enviar o formulário.
+            -->
+            <button class="delete-button" type="button">
+                X
+            </button>
+
+        </li>
+
+    </ul>
+
+</body>
+
+</html>

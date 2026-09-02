@@ -1,0 +1,416 @@
+/*
+    O seletor universal (*) seleciona TODOS os elementos da página.
+*/
+
+* {
+    /*
+        Remove as margens padrão dos elementos.
+    */
+    margin: 0;
+
+    /*
+        Remove os espaçamentos internos padrão.
+    */
+    padding: 0;
+
+    /*
+        Faz com que width e height incluam também o padding
+        e a borda do elemento.
+
+        Isso torna o cálculo de dimensões muito mais previsível.
+    */
+    box-sizing: border-box;
+}
+
+
+/*
+    Estilos gerais do <body>.
+*/
+
+body {
+    /*
+        Define a família de fontes utilizada pela página.
+    */
+    font-family: Arial, sans-serif;
+
+    /*
+        Faz o body ocupar 100% da largura disponível.
+    */
+    width: 100%;
+
+    /*
+        Define a altura como 100%.
+    */
+    height: 100%;
+
+    /*
+        Garante que o body tenha pelo menos a altura
+        da janela do navegador.
+
+        "vh" significa "viewport height".
+
+        100vh = 100% da altura da janela.
+    */
+    min-height: 100vh;
+
+    /*
+        Ativa o Flexbox.
+
+        A partir daqui, podemos utilizar propriedades como
+        align-items e justify-content.
+    */
+    display: flex;
+
+    /*
+        Alinha os elementos verticalmente no início.
+    */
+    align-items: center;
+
+    /*
+        Como o flex-direction abaixo é column, o eixo principal
+        passa a ser vertical.
+
+        "start" significa que os elementos começam no início
+        desse eixo.
+    */
+    justify-content: start;
+
+    /*
+        Define uma cor de fundo escura.
+    */
+    background-color: #222222;
+
+    /*
+        Define a cor padrão do texto.
+    */
+    color: white;
+
+    /*
+        Adiciona espaçamento horizontal nas laterais da página.
+
+        "2rem" significa duas vezes o tamanho da fonte raiz.
+    */
+    padding-inline: 2rem;
+
+    /*
+        Faz com que os elementos filhos sejam organizados
+        verticalmente em vez de horizontalmente.
+    */
+    flex-direction: column;
+}
+
+
+/*
+    Garante que imagens nunca ultrapassem a largura
+    do elemento que as contém.
+*/
+
+img {
+    max-width: 100%;
+}
+
+
+/*
+    Estilo do título principal.
+*/
+
+.title {
+    /*
+        Define o tamanho da fonte.
+    */
+    font-size: 48px;
+
+    /*
+        margin:
+
+        top    = 2rem
+        right  = 0
+        bottom = 12rem
+        left   = 0
+
+        Portanto, existe um grande espaço abaixo do título.
+    */
+    margin: 2rem 0 12rem 0;
+}
+
+
+/*
+    Container que contém todos os itens da lista.
+*/
+
+.items {
+    /*
+        Ocupa toda a largura disponível.
+    */
+    width: 100%;
+
+    /*
+        Ocupa toda a altura disponível.
+    */
+    height: 100%;
+
+    /*
+        Ativa o Flexbox.
+    */
+    display: flex;
+
+    /*
+        Centraliza os itens horizontalmente.
+    */
+    align-items: center;
+
+    /*
+        Centraliza os itens no eixo principal.
+    */
+    justify-content: center;
+
+    /*
+        Coloca os itens um abaixo do outro.
+    */
+    flex-direction: column;
+
+    /*
+        Define 2rem de espaço entre cada item.
+    */
+    gap: 2rem;
+}
+
+
+/*
+    Cabeçalho que indica o significado das colunas.
+*/
+
+.indicator {
+    width: 100%;
+    height: fit-content;
+
+    /*
+        Espaçamento interno:
+
+        1rem em cima/baixo
+        2rem nas laterais
+    */
+    padding: 1rem 2rem;
+
+    color: white;
+
+    /*
+        Reduz a opacidade do elemento para 50%.
+
+        Isso faz com que o cabeçalho fique visualmente
+        menos destacado que os itens.
+    */
+    opacity: 0.5;
+
+    font-size: 21px;
+
+    display: flex;
+    align-items: center;
+
+    /*
+        Distribui os elementos ao longo do espaço disponível,
+        colocando o primeiro no início e o último no final.
+    */
+    justify-content: space-between;
+}
+
+
+/*
+    Estilo compartilhado pelos itens da lista
+    e pelo formulário de adição.
+*/
+
+.item {
+    width: 100%;
+    height: fit-content;
+
+    /*
+        Espaçamento interno:
+
+        4rem em cima/baixo
+        2rem nas laterais
+    */
+    padding: 4rem 2rem;
+
+    border-radius: 1rem;
+
+    background-color: #d18427;
+    color: black;
+
+    font-size: 21px;
+    font-weight: normal;
+
+    /*
+        Ativa o Flexbox para organizar:
+        nome | quantidade | botão
+    */
+    display: flex;
+
+    align-items: center;
+
+    /*
+        Distribui os elementos horizontalmente.
+    */
+    justify-content: space-between;
+
+    /*
+        Define um espaço mínimo entre os elementos.
+    */
+    gap: 1rem;
+}
+
+
+/*
+    Estilo dos campos de entrada.
+*/
+
+.input {
+    /*
+        Utiliza uma cor branca parcialmente transparente.
+    */
+    background-color: #FFFFFF99;
+
+    border-radius: 8px;
+
+    /*
+        0.5rem em cima/baixo
+        1rem nas laterais
+    */
+    padding: 0.5rem 1rem;
+
+    font-size: 21px;
+
+    /*
+        Remove o contorno padrão que alguns navegadores
+        adicionam ao elemento quando ele recebe foco.
+    */
+    outline: none;
+
+    border: 2px solid rgba(0, 0, 0, 0.5);
+
+    width: 100%;
+
+    /*
+        Faz o campo ocupar no máximo o tamanho necessário
+        de acordo com seu conteúdo.
+    */
+    max-width: fit-content;
+
+
+    /*
+        :focus é um pseudo-seletor.
+
+        Ele é aplicado quando o usuário está interagindo
+        com o campo.
+    */
+
+    &:focus {
+        border-color: rgba(0, 0, 0, 1);
+    }
+
+
+    /*
+        ::placeholder seleciona o texto de placeholder
+        dentro do input.
+    */
+
+    &::placeholder {
+        font-style: italic;
+    }
+}
+
+
+/*
+    Estilo para elementos que representam a quantidade.
+*/
+
+.quant {
+    font-size: 21px;
+}
+
+
+/*
+    Botão de deletar.
+*/
+
+.delete-button {
+    width: fit-content;
+    height: fit-content;
+
+    padding: 4px 12px;
+
+    background-color: #ef1515;
+
+    border: 2px solid #f74545;
+
+    font-size: 32px;
+
+    /*
+        Altera o cursor do mouse para indicar que o elemento
+        pode ser clicado.
+    */
+    cursor: pointer;
+
+    border-radius: 6px;
+
+    /*
+        Faz alterações de background-color acontecerem
+        gradualmente durante 150 milissegundos.
+    */
+    transition: background-color 150ms ease-in-out;
+
+
+    /*
+        :hover é aplicado quando o mouse está sobre o botão.
+    */
+
+    &:hover {
+        background-color: #a80a0a;
+    }
+}
+
+
+/*
+    Estilo do nome do produto.
+*/
+
+.item-name {
+    /*
+        Remove o peso padrão do <h2>, deixando-o com aparência
+        semelhante a um texto normal.
+    */
+    font-weight: normal;
+}
+
+
+/*
+    Botão utilizado para adicionar um novo item.
+*/
+
+.add-button {
+    width: fit-content;
+    height: fit-content;
+
+    padding: 4px 12px;
+
+    background-color: #4ac43a;
+
+    border: 2px solid #7ee271;
+
+    font-size: 32px;
+
+    cursor: pointer;
+
+    border-radius: 6px;
+
+    transition: background-color 150ms ease-in-out;
+
+
+    /*
+        Altera a cor do botão quando o mouse passa sobre ele.
+    */
+
+    &:hover {
+        background-color: #239314;
+    }
+}
